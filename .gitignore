@@ -1,0 +1,117 @@
+# ============================================================
+# FinNova EWS — .gitignore
+# Data Analytics Project: Excel | PostgreSQL | Power BI
+# ============================================================
+
+# ----- Operating System Files -----
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# ----- Microsoft Excel -----
+# Temporary lock files created when a file is open
+~$*.xlsx
+~$*.xlsm
+~$*.xltx
+~$*.xlsb
+~$*.xls
+~$*.csv
+
+# Excel auto-recovery
+*.xlk
+
+# ----- Microsoft Power BI -----
+# Temporary lock files created when .pbix is open
+~$*.pbix
+~$*.pbit
+
+# Power BI Desktop temp folder
+.powerbi/
+
+# ----- PostgreSQL / Database -----
+# Database dump files (don't commit production/real data)
+*.dump
+*.sql.gz
+*.backup
+
+# pgAdmin session files
+pgadmin4.db
+
+# Connection string files (NEVER commit credentials)
+.env
+.env.local
+.env.production
+database.ini
+db_config.ini
+connection_strings.txt
+
+# ----- Python (if any scripts are added later) -----
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+*.egg-info/
+dist/
+build/
+.ipynb_checkpoints/
+
+# ----- Jupyter Notebooks -----
+.ipynb_checkpoints/
+
+# ----- Logs -----
+*.log
+logs/
+npm-debug.log*
+
+# ----- Archives / Compressed Files -----
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# ----- Sensitive / Private Files -----
+# NEVER commit any of the below
+secrets.txt
+credentials.json
+api_keys.txt
+*.pem
+*.key
+*.cert
+
+# ----- IDE and Editor Files -----
+# VS Code
+.vscode/
+*.code-workspace
+
+# JetBrains (DataGrip, PyCharm)
+.idea/
+*.iml
+
+# Notepad++
+npp.*.bak
+
+# ----- Miscellaneous -----
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+# Output/report exports (keep only intentionally committed ones)
+# Uncomment the line below if you don't want to track PDF exports:
+# *.pdf
