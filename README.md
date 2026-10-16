@@ -419,7 +419,7 @@ Interested in opportunities across:
 ### Connect
 
 - GitHub: [saurabhpandey95](https://github.com/saurabhpandey95)
-- LinkedIn: [linkedin.com/in/saurabhkumarpandey](https://www.linkedin.com/in/saurabhkumarpandey)
+- LinkedIn: [linkedin.com/in/saurabhkumarpandey](https://www.linkedin.com/in/saurabh-kumar-pandey-it-fintech/)
 - Project Repository: [FinNova Lending Early Warning System](https://github.com/saurabhpandey95/finnova-lending-early-warning-system)
 
 ---
