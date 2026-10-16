@@ -1,152 +1,158 @@
-# FinNova EWS & Collection Analytics
-### End-to-End FinTech Analytics Project | Excel • PostgreSQL • SQL • Power BI
+# FinNova Lending Early Warning System (EWS) & Collection Analytics
 
-An end-to-end lending analytics project designed to analyze loan delinquency, collection performance, borrower risk indicators, and early warning signals.
+**End-to-End FinTech Analytics Project | Excel • PostgreSQL • SQL • Power BI**
 
-The project demonstrates how structured lending data can be transformed into actionable business insights using Excel, PostgreSQL, SQL, and Power BI.
+An end-to-end lending analytics project that explores loan performance, collection efficiency, delinquency, and borrower risk indicators using Excel, PostgreSQL, SQL, and Power BI.
 
-The objective is to help lending and collection teams monitor portfolio performance, identify potentially high-risk accounts, analyze collection efficiency, and prioritize follow-up activities.
+The project demonstrates how structured lending data can be transformed into analytical outputs and interactive dashboards to support collection monitoring, risk assessment, and operational decision-making.
+
+> **Project type:** Portfolio project for learning and demonstration. The Early Warning System uses configured business rules; it is not a trained machine-learning model.
+
+---
+
+## Table of Contents
+
+* [Project Overview](#project-overview)
+* [Business Problem](#business-problem)
+* [Project Objectives](#project-objectives)
+* [Tools and Technologies](#tools-and-technologies)
+* [Dataset Overview](#dataset-overview)
+* [Project Workflow](#project-workflow)
+* [SQL Scripts](#sql-scripts)
+* [Power BI Dashboards](#power-bi-dashboards)
+* [Key Metrics](#key-metrics)
+* [Early Warning System Methodology](#early-warning-system-methodology)
+* [Data Quality and Validation](#data-quality-and-validation)
+* [How to Explore the Project](#how-to-explore-the-project)
+* [Key Skills Demonstrated](#key-skills-demonstrated)
+* [Limitations](#limitations)
+* [Author](#author)
 
 ---
 
 ## Project Overview
 
-**Project Name:** FinNova Lending Early Warning System (EWS)
+FinNova EWS brings together lending data analysis, collection performance measurement, and rule-based risk monitoring.
 
-**Domain:** Banking, Financial Services, and FinTech
+The workflow covers three main stages:
 
-**Project Type:** End-to-End Data Analytics and Business Intelligence
+1. **Excel:** Prepare and review lending-related data.
+2. **PostgreSQL and SQL:** Organize relational data, validate data quality, calculate KPIs, and perform analytical queries.
+3. **Power BI:** Present collection performance and risk indicators through five dashboard pages.
 
-**Tools Used:**
-- Microsoft Excel
-- PostgreSQL
-- SQL
-- Microsoft Power BI
-- DAX
-- Power Query
-- Data Visualization
-
-### Business Objectives
-
-- Analyze loan repayment and collection performance.
-- Identify accounts showing potential early warning signals.
-- Monitor Days Past Due (DPD) and delinquency patterns.
-- Evaluate collection performance across channels and loans.
-- Support risk-based collection prioritization.
-- Present portfolio insights through interactive dashboards.
-- Demonstrate regulatory classification concepts through a simplified RBI IRACP-related dashboard.
-
----
+The project is designed to demonstrate practical data analytics skills in a financial-services context.
 
 ## Business Problem
 
-Lending organizations need reliable information to understand repayment behavior, monitor overdue accounts, measure collection effectiveness, and identify emerging credit risk.
+Lending and collection teams need timely information to understand repayment behavior, identify overdue accounts, measure collection effectiveness, and prioritize follow-up activities.
 
-When these activities are analyzed separately, it becomes difficult to obtain a consistent view of portfolio performance.
+Analyzing these activities separately can make it difficult to obtain a consistent view of portfolio performance.
 
-FinNova EWS addresses this analytical challenge by integrating data preparation, SQL-based analysis, risk indicators, and interactive Power BI reporting into a single project workflow.
+This project uses a structured analytical workflow to explore these questions and present the results through SQL queries and Power BI dashboards.
 
-### Key Business Questions
+## Project Objectives
 
-1. How much has been promised for collection, and how much has actually been collected?
-2. Which loans require additional collection attention?
-3. What early warning indicators are associated with higher-risk accounts?
-4. How does delinquency vary across DPD buckets?
-5. How does collection performance vary by channel?
-6. Which portfolio segments require closer monitoring?
-7. How can management monitor collection and risk KPIs in one place?
+* Analyze loan and repayment information.
+* Measure collection performance using clearly defined KPIs.
+* Examine overdue accounts using Days Past Due (DPD) indicators.
+* Identify configured early warning signals.
+* Analyze collection performance by loan and contact channel.
+* Validate relationships between database tables.
+* Present important portfolio indicators through interactive dashboards.
+* Demonstrate simplified regulatory classification concepts for learning purposes.
 
----
+## Tools and Technologies
 
-## Technology Stack
+| Tool               | Application                                                  |
+| ------------------ | ------------------------------------------------------------ |
+| Microsoft Excel    | Data preparation and source data review                      |
+| PostgreSQL         | Relational database management                               |
+| SQL                | Data validation, joins, aggregations, and analytical queries |
+| Microsoft Power BI | Dashboard development and reporting                          |
+| Power Query        | Data transformation                                          |
+| DAX                | Measures and analytical calculations                         |
+| Data Visualization | Communicating portfolio insights                             |
 
-| Technology | Purpose |
-|---|---|
-| Microsoft Excel | Data preparation, inspection, and source data management |
-| PostgreSQL | Relational database creation and data storage |
-| SQL | Data quality checks, joins, aggregations, KPI calculations, and analytical views |
-| Microsoft Power BI | Interactive dashboards and business reporting |
-| Power Query | Data transformation and preparation |
-| DAX | Measures and analytical calculations |
-| Data Visualization | Communicating portfolio performance and risk indicators |
+## Dataset Overview
 
----
+The project uses six core relational tables:
+
+| Table                 | Purpose                                               |
+| --------------------- | ----------------------------------------------------- |
+| `customer`            | Customer-related information                          |
+| `loan`                | Loan details                                          |
+| `repayment`           | Repayment and due-date information                    |
+| `monthly_behaviour`   | Monthly borrower behavior indicators                  |
+| `ews`                 | Early warning indicators and risk-related information |
+| `collection_activity` | Collection interactions and collection amounts        |
+
+The `data_dictionary.md` file documents dataset fields and their intended meanings.
+
+**Data privacy:** Only synthetic or appropriately anonymized data should be published in this repository. No confidential borrower information should be included.
 
 ## Project Workflow
 
-### Step 1: Excel — Data Preparation
+### 1. Excel — Data Preparation
 
-Prepared and reviewed lending-related datasets covering customers, loans, repayments, borrower behavior, early warning indicators, and collection activities.
+* Reviewed the structure of the source workbook.
+* Examined the lending-related tables and their fields.
+* Prepared data for database analysis.
+* Documented relevant fields in the data dictionary.
 
-Key activities:
-- Reviewed dataset structure and field definitions.
-- Examined data types and record consistency.
-- Prepared source tables for database analysis.
-- Documented important fields in the data dictionary.
+### 2. PostgreSQL — Database Setup
 
-### Step 2: PostgreSQL — Database Setup
+Created the `finnova_ews` database and organized the project data into six relational tables.
 
-Created a relational database named `finnova_ews`.
+The database provides a foundation for validating relationships and analyzing lending and collection activity.
 
-The project uses six core tables:
+### 3. SQL — Data Analysis
 
-- `customer`
-- `loan`
-- `repayment`
-- `monthly_behaviour`
-- `ews`
-- `collection_activity`
+Created seven SQL scripts covering:
 
-The tables represent different aspects of borrower information, loan details, repayment schedules, monthly behavior, early warning indicators, and collection activities.
+* Database setup
+* Data quality validation
+* Collection KPI calculations
+* Loan-level performance
+* Early warning analysis
+* Collection channel and DPD analysis
+* Reusable analytical views
 
-### Step 3: SQL — Data Analysis
+### 4. Power BI — Dashboard Development
 
-Developed seven SQL scripts to organize the analytical workflow.
+Developed five dashboard pages to explore collection performance, risk indicators, management-level metrics, geographic exposure, and a simplified regulatory classification demonstration.
 
-The analysis includes:
-- Database and table creation.
-- Data quality validation.
-- Referential integrity checks.
-- Collection KPI calculations.
-- Loan-level performance analysis.
-- Early warning risk analysis.
-- Channel and DPD analysis.
-- Reusable analytical views.
-
-### Step 4: Power BI — Dashboard Development
-
-Developed five dashboard pages to communicate portfolio performance, collection activity, risk indicators, geographic exposure, and regulatory classification concepts.
-
-The dashboards support visual exploration of the project's analytical results.
+The dashboards are supported by the underlying project data and analytical logic.
 
 ---
 
 ## SQL Scripts
 
-Seven SQL scripts are included in the repository.
+The repository contains seven SQL scripts.
 
-| File | Purpose |
-|---|---|
-| `01_database_setup.sql` | Database and table setup |
-| `02_data_quality.sql` | Data quality and integrity checks |
-| `03_collection_kpis.sql` | Collection performance KPI calculations |
-| `04_performance_by_loan.sql` | Loan-level performance analysis |
-| `05_ews_analysis.sql` | Early Warning System analysis |
-| `06_channel_dpd_analysis.sql` | Collection channel and DPD analysis |
-| `07_analytical_views.sql` | Creation of reusable analytical views |
+| Script                        | Purpose                              |
+| ----------------------------- | ------------------------------------ |
+| `01_database_setup.sql`       | Database and table setup             |
+| `02_data_quality.sql`         | Data quality and relationship checks |
+| `03_collection_kpis.sql`      | Collection KPI calculations          |
+| `04_performance_by_loan.sql`  | Loan-level performance analysis      |
+| `05_ews_analysis.sql`         | Early Warning System analysis        |
+| `06_channel_dpd_analysis.sql` | Collection channel and DPD analysis  |
+| `07_analytical_views.sql`     | Reusable analytical views            |
 
-### SQL Skills Demonstrated
+### SQL concepts demonstrated
 
-- SELECT statements and filtering
-- JOIN operations
-- GROUP BY and aggregate functions
-- CASE expressions
-- Conditional calculations
-- Data quality checks
-- Referential integrity validation
-- Loan-level and portfolio-level analysis
-- KPI calculations
-- Analytical views
+* `SELECT`, `WHERE`, and `ORDER BY`
+* `JOIN` operations
+* `GROUP BY` and aggregate functions
+* `CASE` expressions
+* Conditional calculations
+* Data quality checks
+* Referential integrity validation
+* KPI calculations
+* Loan-level and portfolio-level analysis
+* Analytical views
+
+The scripts are listed in their current repository location. If they are later moved into a `sql/` directory, update the file paths and instructions accordingly.
 
 ---
 
@@ -156,178 +162,160 @@ The project contains five dashboard pages.
 
 ### 1. Collection Overview
 
-Provides an overview of collection performance and important collection KPIs.
+Provides a consolidated view of collection performance and relevant collection KPIs.
 
 ![Collection Overview](01_Collection_Overview.png)
 
 ### 2. Early Warning Risk Analysis
 
-Focuses on borrower risk indicators and early warning signals used to identify accounts requiring additional attention.
+Explores configured early warning indicators and risk-related information used to identify accounts that may require additional attention.
 
 ![Early Warning Risk Analysis](02_Early_Warning_Risk_Analysis.png)
 
 ### 3. Executive Command Center
 
-Presents a consolidated view of important portfolio and collection performance indicators for management monitoring.
+Presents a management-oriented view of key lending and collection performance indicators.
 
 ![Executive Command Center](03_Executive_Command_Center.png)
 
 ### 4. Geographic Risk Atlas
 
-Supports the analysis of geographic patterns in portfolio exposure and risk.
+Explores geographic patterns in the available lending portfolio and risk indicators.
 
 ![Geographic Risk Atlas](04_Geographic_Risk_Atlas.png)
 
 ### 5. RBI IRACP Classification — Demonstration
 
-Demonstrates regulatory classification concepts using simplified project logic.
+Demonstrates simplified asset-classification concepts through a Power BI dashboard.
 
-![RBI IRACP Compliance Dashboard](05_RBI_IRACP_Compliance.png)
+![RBI IRACP Classification Dashboard](05_RBI_IRACP_Compliance.png)
 
-**Important:** The RBI IRACP dashboard is an educational demonstration. Its calculations and classification logic should not be treated as verified regulatory reporting without independent validation against applicable RBI requirements.
+**Regulatory disclaimer:** This dashboard is an educational demonstration. Its classifications and calculations should not be treated as verified regulatory reporting or a guarantee of RBI compliance. Actual regulatory requirements and their applicability must be independently validated.
 
 ---
 
-## Key KPIs and Analytical Areas
+## Key Metrics
 
-The project examines the following metrics and analytical areas.
+The project examines several lending and collection indicators.
 
-| KPI / Analysis | Business Purpose |
-|---|---|
-| Total Loan Portfolio | Understand the scale of the loan portfolio |
-| Collection Realization % | Measure collections against the defined collection target |
-| Promised Amount | Monitor amounts committed for collection |
-| Collected Amount | Measure actual collections |
-| Uncollected Amount | Identify amounts remaining uncollected |
-| Days Past Due (DPD) | Monitor repayment delinquency |
-| Early Warning Indicators | Identify accounts requiring closer monitoring |
-| Risk Segmentation | Compare portfolio risk across relevant segments |
-| Channel Analysis | Evaluate collection performance by contact channel |
-| Loan-Level Performance | Examine performance at individual loan level |
+| Metric                   | Purpose                                                             |
+| ------------------------ | ------------------------------------------------------------------- |
+| Total Loan Portfolio     | Understand the size of the analyzed loan portfolio                  |
+| Promised Amount          | Monitor amounts committed for collection                            |
+| Collected Amount         | Measure recorded collection amounts                                 |
+| Uncollected Amount       | Examine amounts remaining uncollected under the selected definition |
+| Collection Realization % | Measure collections against the corresponding collection target     |
+| Days Past Due (DPD)      | Examine repayment delinquency                                       |
+| Early Warning Indicators | Identify accounts requiring additional monitoring                   |
+| Loan-Level Performance   | Examine performance at the individual loan level                    |
+| Channel Analysis         | Compare collection activity across contact channels                 |
 
-### Collection Realization
+### Collection Realization Formula
 
-The general calculation used for collection realization is:
+For a consistently defined collection population and reporting period:
 
-Collection Realization % = (Collected Amount / Promised Amount) × 100
+**Collection Realization (%) = (Collected Amount ÷ Promised Amount) × 100**
 
-The numerator and denominator must refer to the same reporting period and collection population.
+The promised amount and collected amount must refer to the same collection records and reporting scope.
 
-**Note:** Repayment amounts due and amounts promised during collection activities are different measures. Interpret collection realization using the source table and business definition specified for the particular analysis.
+Repayment amounts due and amounts promised during collection activities are different measures. They should not be combined without a clearly documented business definition.
+
+Final KPI values should be reconciled across Excel, PostgreSQL, and Power BI before being presented as definitive project results.
 
 ---
 
 ## Early Warning System Methodology
 
-The project uses a rule-based Early Warning System to organize borrower risk indicators.
+The project uses a **rule-based Early Warning System** to organize borrower risk indicators.
 
-The workflow combines available borrower behavior and loan-related information to support risk monitoring and collection prioritization.
+The general analytical process is:
 
-The analytical process includes:
+1. Review available customer and loan information.
+2. Examine repayment behavior and delinquency indicators.
+3. Identify configured early warning signals.
+4. Apply the risk-scoring rules implemented in the project.
+5. Group accounts according to the configured risk categories.
+6. Use the results to support analytical review and collection prioritization.
 
-1. Reviewing borrower and loan information.
-2. Examining repayment and delinquency indicators.
-3. Identifying configured early warning signals.
-4. Applying the project's risk scoring logic.
-5. Segmenting accounts according to the configured risk rules.
-6. Supporting follow-up prioritization through analytical reporting.
+The system is intended to demonstrate how business rules and lending indicators can support risk monitoring.
 
-The EWS is a rule-based analytical approach, not a trained machine-learning prediction model.
-
-Risk scores and classifications should be interpreted according to the rules implemented in the SQL scripts and Power BI report.
+**Important:** The EWS should not be described as a predictive machine-learning model. Its output depends on the rules, thresholds, and source data implemented in the project.
 
 ---
 
 ## Data Quality and Validation
 
-Data quality is important for reliable financial reporting.
+Reliable analysis requires consistent data and valid relationships between tables.
 
-The project includes SQL checks for:
-- Referential integrity between related tables.
-- Orphan records.
-- Record consistency.
-- Collection KPI calculations.
-- Analytical result validation.
+The SQL workflow includes checks for:
 
-The database validation work identified zero orphan records in the tables checked during the project.
+* Referential integrity
+* Orphan records
+* Data consistency
+* Collection KPI calculations
+* Analytical result validation
 
-Financial KPIs and record counts should be reconciled across Excel, PostgreSQL, and Power BI before the report is used for decision-making.
+During the project, the referential-integrity checks performed returned zero orphan records in the tables checked.
 
----
+This result applies to the checks that were run; it does not guarantee that every possible data-quality issue has been eliminated.
 
-## Project Files
-
-| File | Description |
-|---|---|
-| `FinNova_EWS_Desion_Intelligence.xlsx` | Excel source workbook |
-| `finnova_ews.pbix` | Interactive Power BI project |
-| `finnova_ews.pdf` | Dashboard PDF export |
-| `data_dictionary.md` | Dataset field definitions, if included in the repository |
-| `01_database_setup.sql` | Database setup script |
-| `02_data_quality.sql` | Data quality checks |
-| `03_collection_kpis.sql` | Collection KPI analysis |
-| `04_performance_by_loan.sql` | Loan performance analysis |
-| `05_ews_analysis.sql` | Early warning analysis |
-| `06_channel_dpd_analysis.sql` | Channel and DPD analysis |
-| `07_analytical_views.sql` | Analytical views |
-| `LICENSE` | Project license |
+Collection totals and risk counts should be reconciled across Excel, SQL, and Power BI to ensure that they use consistent record populations, date ranges, and business definitions.
 
 ---
 
 ## How to Explore the Project
 
-### Option 1: Review the Dashboards
+### Option 1 — Review the Dashboards
 
-Open the dashboard screenshots above or download `finnova_ews.pdf` to review the dashboard pages.
+View the five dashboard images above or open `finnova_ews.pdf` to review the dashboard pages.
 
-### Option 2: Explore the SQL Analysis
+### Option 2 — Explore the SQL Scripts
 
-Review the seven SQL scripts in numerical order, beginning with database setup and continuing through data quality, KPI analysis, EWS analysis, and analytical views.
+Review the seven SQL files in numerical order, beginning with database setup and continuing through data quality, KPI analysis, risk analysis, and analytical views.
 
-### Option 3: Open the Power BI Project
+### Option 3 — Open the Power BI Report
 
 Download `finnova_ews.pbix` and open it using Microsoft Power BI Desktop.
 
-The ability to refresh the report depends on the availability of the required data sources and the configured connections.
+Refreshing the report may require the original workbook, compatible data sources, and appropriate connection settings.
 
-### Option 4: Review the Dataset
+### Option 4 — Review the Excel Workbook
 
-Explore the Excel workbook and data dictionary to understand the source tables and field definitions.
-
-**Data privacy:** Use only synthetic or appropriately anonymized data in the public repository. Do not publish confidential borrower information, credentials, or sensitive connection details.
+Open `FinNova_EWS_Desion_Intelligence.xlsx` to examine the workbook used in the project. Refer to `data_dictionary.md` for field definitions.
 
 ---
 
-## Skills Demonstrated
+## Key Skills Demonstrated
 
-- Data Cleaning and Preparation
-- Microsoft Excel
-- PostgreSQL
-- SQL Query Writing
-- Data Quality Validation
-- Relational Data Analysis
-- KPI Development
-- Collection Performance Analysis
-- Delinquency and DPD Analysis
-- Rule-Based Risk Analysis
-- Power BI Dashboard Development
-- Power Query
-- DAX
-- Data Modeling
-- Business Intelligence
-- Financial and Operational Reporting
-- Analytical Thinking
-- Business Problem Solving
+* Microsoft Excel
+* PostgreSQL
+* SQL Query Writing
+* Data Cleaning and Preparation
+* Data Quality Validation
+* Relational Data Analysis
+* KPI Development
+* Collection Performance Analysis
+* Delinquency and DPD Analysis
+* Rule-Based Risk Analysis
+* Power BI Dashboard Development
+* Power Query
+* DAX
+* Data Modeling
+* Business Intelligence
+* Financial and Operational Reporting
+* Analytical Thinking
+* Business Problem Solving
 
 ---
 
-## Project Limitations
+## Limitations
 
-- The project is a portfolio demonstration, not a production lending platform.
-- The EWS uses configured rules rather than a trained predictive model.
-- The RBI IRACP-related dashboard uses simplified demonstration logic.
-- Financial KPIs should be reconciled across source data, SQL results, and Power BI before business use.
-- Results depend on the quality, completeness, and definitions of the underlying data.
+* This is a portfolio project, not a production lending or collection platform.
+* The Early Warning System uses configured business rules rather than a trained machine-learning model.
+* Regulatory classification logic is presented for educational demonstration only.
+* Financial KPIs require consistent definitions and reconciliation across the source workbook, SQL results, and Power BI report.
+* Results depend on the completeness, quality, and scope of the underlying data.
+* The project does not independently establish regulatory compliance or guarantee future loan performance.
 
 ---
 
@@ -335,22 +323,23 @@ Explore the Excel workbook and data dictionary to understand the source tables a
 
 **Saurabh Kumar Pandey**
 
-MBA — Information Technology & FinTech  
+MBA — Information Technology & FinTech
 Aspiring Data Analyst | Power BI Analyst | FinTech Analytics
 
 Interested in opportunities across:
-- BFSI and FinTech Analytics
-- Data Analytics and Business Intelligence
-- MIS Reporting
-- Power BI Development
-- Lending and Collection Analytics
-- Risk and Operations Analytics
 
-### Connect
+* BFSI and FinTech Analytics
+* Data Analytics and Business Intelligence
+* MIS Reporting
+* Power BI Development
+* Lending and Collection Analytics
+* Risk and Operations Analytics
 
-- GitHub: [saurabhpandey95](https://github.com/saurabhpandey95)
-- Project Repository: [FinNova Lending Early Warning System](https://github.com/saurabhpandey95/finnova-lending-early-warning-system)
+### Connect with Me
+
+* **GitHub Profile:** [saurabhpandey95](https://github.com/saurabhpandey95)
+* **Project Repository:** [FinNova Lending Early Warning System](https://github.com/saurabhpandey95/finnova-lending-early-warning-system)
 
 ---
 
-*This project was developed for learning, portfolio development, and analytical demonstration purposes. It does not constitute financial, credit, or regulatory advice.*
+*Developed for learning, portfolio development, and analytical demonstration. This project does not constitute financial, credit, or regulatory advice.*
